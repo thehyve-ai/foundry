@@ -1,4 +1,4 @@
-use revm::bytecode::{OpCode, opcode};
+use revm::bytecode::{opcode, OpCode};
 use std::{fmt, slice};
 
 /// An iterator that yields opcodes and their immediate data.
@@ -131,7 +131,7 @@ impl fmt::Display for Inst<'_> {
         write!(f, "{}", self.opcode)?;
         match self.immediate {
             [] => Ok(()),
-            imm => write!(f, " {:#x}", alloy_primitives::hex::display(imm)),
+            imm => write!(f, " {:#x}", alloy_primitives::hex::encode_prefixed(imm)),
         }
     }
 }
