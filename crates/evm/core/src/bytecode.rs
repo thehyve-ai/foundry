@@ -131,7 +131,7 @@ impl fmt::Display for Inst<'_> {
         write!(f, "{}", self.opcode)?;
         match self.immediate {
             [] => Ok(()),
-            imm => write!(f, " {:#x}", alloy_primitives::hex::encode_prefixed(imm)),
+            imm => write!(f, " {}", alloy_primitives::hex::encode_prefixed(imm)),
         }
     }
 }
